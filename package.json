@@ -23,6 +23,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react-hooks": "^3.0.0",
     "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.7",
     "prettier": "^2.0.5",
     "typescript": "^3.8.3"
   },
@@ -56,5 +58,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "yarn fromat",
+      "yarn lint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "post-commit": "git update-index --again",
+      "pre-commit": "tsc && yarn lint && lint-staged"
+    }
   }
 }
