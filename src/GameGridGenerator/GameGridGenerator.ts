@@ -1,13 +1,10 @@
 import { GameGrid } from '../types/GameGrid';
 import sampleSize from 'lodash/sampleSize';
 import shuffle from 'lodash/shuffle';
+import range from 'lodash/range';
 import { MIN_VALUE, MAX_VALUE } from './const';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-const availableValues: number[] = [...Array(MAX_VALUE).keys()].filter(
-  (num) => num >= MIN_VALUE
-);
+const availableValues = range(MIN_VALUE,MAX_VALUE + 1);
 
 /**
  *
