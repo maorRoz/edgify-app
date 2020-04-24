@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
-import { Grid } from './components/Grid';
+import { GameBoard } from './components/GameBoard';
 
 export const App = () => {
   return (
@@ -15,7 +15,7 @@ export const App = () => {
       >
         <Switch>
           <Route path='/'>
-            <Grid />
+            <GameBoard />
           </Route>
         </Switch>
       </div>

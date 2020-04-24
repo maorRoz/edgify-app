@@ -3,6 +3,6 @@ import { NavBarLayout, NavBarHeader } from './NavBar.styled';
 
 export const NavBar = () => (
   <NavBarLayout>
-    <NavBarHeader to='/'>Edgify App</NavBarHeader>
+    <NavBarHeader to='/'>Memory Game</NavBarHeader>
   </NavBarLayout>
 );
