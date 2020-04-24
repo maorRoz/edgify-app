@@ -13,7 +13,7 @@ const availableValues = range(MIN_VALUE,MAX_VALUE + 1);
  *
  *   @param numberOfGridItems an even number between the inclusive of 2 and 42
  */
-export const GameGridGenerator = (numberOfGridItems = 2): GameGrid => {
+export const generateGameGrid = (numberOfGridItems = 2): GameGrid => {
   const chosenValuesArray = sampleSize<number>(
     availableValues,
     numberOfGridItems / 2

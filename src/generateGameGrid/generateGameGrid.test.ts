@@ -1,9 +1,9 @@
 import random from 'lodash/random';
 import uniq from 'lodash/uniq';
-import { GameGridGenerator } from './GameGridGenerator';
+import { generateGameGrid } from './generateGameGrid';
 import { MIN_VALUE, MAX_VALUE } from './const';
 
-describe('GameGridGenerator', () => {
+describe('generateGameGrid', () => {
   let numberOfGridItems: number;
 
   beforeEach(() => {
@@ -13,14 +13,14 @@ describe('GameGridGenerator', () => {
   });
 
   test('length = numberOfGridItems', () => {
-    const gameGrid = GameGridGenerator(numberOfGridItems);
+    const gameGrid = generateGameGrid(numberOfGridItems);
 
     expect(gameGrid).toHaveLength(numberOfGridItems);
 
   })
 
   test('each value appear only twice', () => {
-    const gameGrid = GameGridGenerator(numberOfGridItems);
+    const gameGrid = generateGameGrid(numberOfGridItems);
     const uniqueValues = uniq(gameGrid);
 
     uniqueValues.forEach(uniqueValue => {
@@ -30,7 +30,7 @@ describe('GameGridGenerator', () => {
   });
 
   test('each item is of inclusive range MIN_VALUE - MAX_VALUE', () => {
-    const gameGrid = GameGridGenerator(numberOfGridItems);
+    const gameGrid = generateGameGrid(numberOfGridItems);
     const validItems = gameGrid.filter(item => item >= MIN_VALUE || item <= MAX_VALUE);
 
     expect(validItems).toHaveLength(numberOfGridItems);
