@@ -14,6 +14,7 @@ export const RevealedCardLayout = styled.div`
   transition: 2s;
 
   img {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
   }
 `;
