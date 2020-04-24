@@ -1,7 +1,7 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { NavBar } from './components/NavBar'
-import { Grid } from './components/Grid'
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { NavBar } from './components/NavBar';
+import { Grid } from './components/Grid';
 
 export const App = () => {
   return (
@@ -20,5 +20,5 @@ export const App = () => {
         </Switch>
       </div>
     </Router>
-  )
-}
+  );
+};

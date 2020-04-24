@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const NavBarLayout = styled.div`
   position: sticky;
@@ -10,7 +10,7 @@ export const NavBarLayout = styled.div`
   margin-bottom: 20px;
   background-color: #24292e;
   color: white;
-`
+`;
 
 export const NavBarHeader = styled(Link)`
   display: flex;
@@ -22,4 +22,4 @@ export const NavBarHeader = styled(Link)`
   font-weight: bold;
   color: inherit;
   text-decoration: none;
-`
+`;
