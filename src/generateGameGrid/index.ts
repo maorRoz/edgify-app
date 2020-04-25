@@ -1,1 +1,1 @@
-export { generateGameGrid as GameGridGenerator } from './generateGameGrid';
+export { generateGameGrid } from './generateGameGrid';

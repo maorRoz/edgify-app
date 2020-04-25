@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
 import { GameBoard } from './components/GameBoard';
+import { generateGameGrid } from './generateGameGrid';
 
 export const App = () => {
   return (
@@ -15,7 +16,7 @@ export const App = () => {
       >
         <Switch>
           <Route path='/'>
-            <GameBoard />
+            <GameBoard generateGameGrid={generateGameGrid} />
           </Route>
         </Switch>
       </div>

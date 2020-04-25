@@ -1,14 +1,19 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { Grid } from '../Grid';
 import { GridHeader } from '../GridHeader';
-import { generateGameGrid } from '../../generateGameGrid/generateGameGrid';
+import { POINTS, NUMBER_OF_GRID_ITEMS } from './const';
+import { GameGrid } from '../../types/GameGrid';
 
-const POINTS = 10;
+export type GameBoardProps = {
+  generateGameGrid: (numberOfGridItems: number) => GameGrid;
+};
 
-export const GameBoard = () => {
+export const GameBoard = ({ generateGameGrid }: GameBoardProps) => {
   const [score, setScore] = useState(0);
 
-  const gameGrid = useMemo(() => generateGameGrid(30), []);
+  const gameGrid = useMemo(() => generateGameGrid(NUMBER_OF_GRID_ITEMS), [
+    generateGameGrid
+  ]);
 
   const increaseScore = useCallback(() => setScore(score + POINTS), [score]);
 

@@ -16,7 +16,7 @@ export const Grid = ({ gameGrid, increaseScore }: GridProps) => {
   const [itemsToDiscard, setItemsToDiscard] = useState<number[]>([]);
   const [busy, setBusy] = useState(false);
 
-  const postponeDeselect = useCallback((items: number[]) => {
+  const discardItems = useCallback((items: number[]) => {
     setItemsToDiscard(items);
     setBusy(true);
     setTimeout(() => {
@@ -32,15 +32,9 @@ export const Grid = ({ gameGrid, increaseScore }: GridProps) => {
       setRevealedValues(revealedValues.concat(firstValue));
       increaseScore();
     } else {
-      postponeDeselect(selectedItems);
+      discardItems(selectedItems);
     }
-  }, [
-    gameGrid,
-    increaseScore,
-    postponeDeselect,
-    revealedValues,
-    selectedItems
-  ]);
+  }, [gameGrid, increaseScore, discardItems, revealedValues, selectedItems]);
 
   useEffect(() => {
     if (selectedItems.length === 2) {

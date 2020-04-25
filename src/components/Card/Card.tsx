@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Square, RevealedCardLayout } from './Card.styled';
 
-const getImageSource = (value: number) =>
+const getImageSource = (value: number): string =>
   `https://www.memozor.com/jeux/jquery/objects_diy/image${value}.jpg`;
 
 export type CardProps = {
@@ -16,11 +16,11 @@ export const Card = ({ value, onSelect, revealed }: CardProps) => {
   return (
     <>
       {revealed ? (
-        <RevealedCardLayout>
-          <img src={imageSource} alt='' />
+        <RevealedCardLayout data-testid={`revealed-${value}`}>
+          <img src={imageSource} alt={`revealed-${value}-image`} />
         </RevealedCardLayout>
       ) : (
-        <Square onClick={onSelect}/>
+        <Square onClick={onSelect} data-testid={`square-${value}`} />
       )}
     </>
   );
