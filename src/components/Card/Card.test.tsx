@@ -53,7 +53,7 @@ describe('<Card>', () => {
     test('img rendered', () => {
       const { getByAltText } = render(<Card {...props} />);
 
-      const imgElement = getByAltText(`revealed-${props.value}-image`);
+      const imgElement = getByAltText(`revealed-${props.value}`);
 
       expect(imgElement).toBeInTheDocument();
     });

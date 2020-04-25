@@ -17,7 +17,7 @@ export const Card = ({ value, onSelect, revealed }: CardProps) => {
     <>
       {revealed ? (
         <RevealedCardLayout data-testid={`revealed-${value}`}>
-          <img src={imageSource} alt={`revealed-${value}-image`} />
+          <img src={imageSource} alt={`revealed-${value}`} />
         </RevealedCardLayout>
       ) : (
         <Square onClick={onSelect} data-testid={`square-${value}`} />

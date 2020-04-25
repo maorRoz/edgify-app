@@ -33,7 +33,7 @@ describe('<Grid>', () => {
     fireEvent.click(Square);
 
     const Squares = getAllByTestId(`square-${selectedValue}`);
-    const imgElements = getAllByAltText(`revealed-${selectedValue}-image`);
+    const imgElements = getAllByAltText(`revealed-${selectedValue}`);
 
     expect(Squares).toHaveLength(1);
     expect(imgElements).toHaveLength(1);
@@ -54,7 +54,7 @@ describe('<Grid>', () => {
     });
 
     Squares = queryAllByTestId(`square-${selectedValue}`);
-    const imgElements = getAllByAltText(`revealed-${selectedValue}-image`);
+    const imgElements = getAllByAltText(`revealed-${selectedValue}`);
 
     expect(Squares).toHaveLength(0);
     expect(imgElements).toHaveLength(2);
@@ -79,10 +79,10 @@ describe('<Grid>', () => {
 
     await waitFor(() => {
       const selectedFirstValueImage = queryByAltText(
-        `revealed-${selectedFirstValue}-image`
+        `revealed-${selectedFirstValue}`
       );
       const selectedSecondValueImage = queryByAltText(
-        `revealed-${selectedSecondValue}-image`
+        `revealed-${selectedSecondValue}`
       );
       const selectedFirstValueSquares = getAllByTestId(
         `square-${selectedFirstValue}`

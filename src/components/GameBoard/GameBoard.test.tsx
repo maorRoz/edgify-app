@@ -35,7 +35,7 @@ describe('<GameBoard>', () => {
     fireEvent.click(Square);
 
     const Squares = getAllByTestId(`square-${selectedValue}`);
-    const imgElements = getAllByAltText(`revealed-${selectedValue}-image`);
+    const imgElements = getAllByAltText(`revealed-${selectedValue}`);
     const Score = getByText(`Score: 0`);
 
     expect(Squares).toHaveLength(1);
@@ -60,7 +60,7 @@ describe('<GameBoard>', () => {
     });
 
     Squares = queryAllByTestId(`square-${selectedValue}`);
-    const imgElements = getAllByAltText(`revealed-${selectedValue}-image`);
+    const imgElements = getAllByAltText(`revealed-${selectedValue}`);
     const Score = getByText(`Score: ${POINTS}`);
 
     expect(Squares).toHaveLength(0);
@@ -88,10 +88,10 @@ describe('<GameBoard>', () => {
 
     await waitFor(() => {
       const selectedFirstValueImage = queryByAltText(
-        `revealed-${selectedFirstValue}-image`
+        `revealed-${selectedFirstValue}`
       );
       const selectedSecondValueImage = queryByAltText(
-        `revealed-${selectedSecondValue}-image`
+        `revealed-${selectedSecondValue}`
       );
       const selectedFirstValueSquares = getAllByTestId(
         `square-${selectedFirstValue}`
