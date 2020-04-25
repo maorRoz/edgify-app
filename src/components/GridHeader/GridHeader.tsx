@@ -1,11 +1,14 @@
 import React from 'react';
-import { Score } from './GridHeader.styled';
-
+import { Header } from './GridHeader.styled';
 
 export type GridHeaderProps = {
   score: number;
+  gameOver?: boolean;
 };
 
-export const GridHeader = ({ score }: GridHeaderProps) => (
-  <Score>Score: {score}</Score>
+export const GridHeader = ({ score, gameOver }: GridHeaderProps) => (
+  <Header>
+    <div>Score: {score}</div>
+    {gameOver && <div>Game Over - Congratulation!</div>}
+  </Header>
 );

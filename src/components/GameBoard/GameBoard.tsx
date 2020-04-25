@@ -15,11 +15,16 @@ export const GameBoard = ({ generateGameGrid }: GameBoardProps) => {
     generateGameGrid
   ]);
 
+  const isGameOver = useMemo(
+    () => score === (NUMBER_OF_GRID_ITEMS / 2) * POINTS,
+    [score]
+  );
+
   const increaseScore = useCallback(() => setScore(score + POINTS), [score]);
 
   return (
     <>
-      <GridHeader score={score} />
+      <GridHeader score={score} gameOver={isGameOver} />
       <Grid gameGrid={gameGrid} increaseScore={increaseScore} />
     </>
   );

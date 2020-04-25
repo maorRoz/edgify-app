@@ -69,7 +69,9 @@ describe('<GameBoard>', () => {
   });
 
   test('clicked two not matched items', async () => {
-    const { getAllByTestId, queryByAltText,getByText } = render(<GameBoard {...props} />);
+    const { getAllByTestId, queryByAltText, getByText } = render(
+      <GameBoard {...props} />
+    );
 
     const [selectedFirstValue, selectedSecondValue] = uniq(gameGrid);
 
@@ -84,10 +86,13 @@ describe('<GameBoard>', () => {
       fireEvent.click(Square);
     });
 
-
     await waitFor(() => {
-      const selectedFirstValueImage = queryByAltText(`revealed-${selectedFirstValue}-image`);
-      const selectedSecondValueImage = queryByAltText(`revealed-${selectedSecondValue}-image`);
+      const selectedFirstValueImage = queryByAltText(
+        `revealed-${selectedFirstValue}-image`
+      );
+      const selectedSecondValueImage = queryByAltText(
+        `revealed-${selectedSecondValue}-image`
+      );
       const selectedFirstValueSquares = getAllByTestId(
         `square-${selectedFirstValue}`
       );
@@ -101,6 +106,26 @@ describe('<GameBoard>', () => {
       expect(selectedFirstValueSquares).toHaveLength(2);
       expect(selectedSecondValueSquares).toHaveLength(2);
       expect(Score).toBeInTheDocument();
-    })
+    });
+  });
+
+  test('game over', () => {
+    const { getAllByTestId, getByText } = render(<GameBoard {...props} />);
+
+    const gameGridValues = uniq(gameGrid);
+
+    gameGridValues.forEach((value) => {
+      const Squares = getAllByTestId(`square-${value}`);
+
+      Squares.forEach((square) => {
+        fireEvent.click(square);
+      });
+    });
+
+    const Score = getByText(`Score: ${POINTS * gameGridValues.length}`);
+    const GameOver = getByText(`Game Over - Congratulation!`);
+
+    expect(Score).toBeInTheDocument();
+    expect(GameOver).toBeInTheDocument();
   });
 });

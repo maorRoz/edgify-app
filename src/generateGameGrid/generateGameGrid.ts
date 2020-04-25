@@ -4,7 +4,7 @@ import shuffle from 'lodash/shuffle';
 import range from 'lodash/range';
 import { MIN_VALUE, MAX_VALUE } from './const';
 
-const availableValues = range(MIN_VALUE,MAX_VALUE + 1);
+const availableValues = range(MIN_VALUE, MAX_VALUE + 1);
 
 /**
  *

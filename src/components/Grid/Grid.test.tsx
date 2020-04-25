@@ -77,10 +77,13 @@ describe('<Grid>', () => {
       fireEvent.click(Square);
     });
 
-
     await waitFor(() => {
-      const selectedFirstValueImage = queryByAltText(`revealed-${selectedFirstValue}-image`);
-      const selectedSecondValueImage = queryByAltText(`revealed-${selectedSecondValue}-image`);
+      const selectedFirstValueImage = queryByAltText(
+        `revealed-${selectedFirstValue}-image`
+      );
+      const selectedSecondValueImage = queryByAltText(
+        `revealed-${selectedSecondValue}-image`
+      );
       const selectedFirstValueSquares = getAllByTestId(
         `square-${selectedFirstValue}`
       );
@@ -93,6 +96,6 @@ describe('<Grid>', () => {
       expect(selectedFirstValueSquares).toHaveLength(2);
       expect(selectedSecondValueSquares).toHaveLength(2);
       expect(props.increaseScore).not.toHaveBeenCalled();
-    })
+    });
   });
 });

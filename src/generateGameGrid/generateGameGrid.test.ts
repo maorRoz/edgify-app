@@ -16,23 +16,25 @@ describe('generateGameGrid', () => {
     const gameGrid = generateGameGrid(numberOfGridItems);
 
     expect(gameGrid).toHaveLength(numberOfGridItems);
-
-  })
+  });
 
   test('each value appear only twice', () => {
     const gameGrid = generateGameGrid(numberOfGridItems);
     const uniqueValues = uniq(gameGrid);
 
-    uniqueValues.forEach(uniqueValue => {
-        const appearances = gameGrid.filter(item => item === uniqueValue).length;
-        expect(appearances).toBe(2);
-    })
+    uniqueValues.forEach((uniqueValue) => {
+      const appearances = gameGrid.filter((item) => item === uniqueValue)
+        .length;
+      expect(appearances).toBe(2);
+    });
   });
 
   test('each item is of inclusive range MIN_VALUE - MAX_VALUE', () => {
     const gameGrid = generateGameGrid(numberOfGridItems);
-    const validItems = gameGrid.filter(item => item >= MIN_VALUE || item <= MAX_VALUE);
+    const validItems = gameGrid.filter(
+      (item) => item >= MIN_VALUE || item <= MAX_VALUE
+    );
 
     expect(validItems).toHaveLength(numberOfGridItems);
-  })
+  });
 });
